@@ -1,0 +1,1261 @@
+/* =========================================
+   GIVE IT TIME
+   An Exercise in Patience
+
+   HTML + CSS ONLY
+========================================= */
+
+
+/* =========================================
+   BASIC RESET
+========================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+
+body {
+
+    background: #eee9df;
+
+    color: #403c36;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    overflow: hidden;
+
+}
+
+
+/* =========================================
+   HIDE CHECKBOX
+========================================= */
+
+#enter-room {
+
+    position: absolute;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+}
+
+
+/* =========================================
+   INTRODUCTION
+========================================= */
+
+.intro {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 100;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: #eee9df;
+
+    text-align: center;
+
+    transition:
+        opacity 2s ease,
+        visibility 2s ease;
+
+}
+
+
+.intro-content {
+
+    width: min(600px, 85vw);
+
+}
+
+
+.eyebrow {
+
+    margin-bottom: 25px;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 11px;
+
+    letter-spacing: 4px;
+
+    opacity: 0.5;
+
+}
+
+
+h1 {
+
+    margin: 0 0 35px 0;
+
+    font-size:
+        clamp(55px, 8vw, 110px);
+
+    font-weight: normal;
+
+    line-height: 0.95;
+
+}
+
+
+.intro-line {
+
+    margin: 5px 0;
+
+    font-size: 19px;
+
+    line-height: 1.7;
+
+}
+
+
+.enter-button {
+
+    display: inline-block;
+
+    margin-top: 40px;
+
+    padding: 15px 30px;
+
+    border: 1px solid #403c36;
+
+    background: transparent;
+
+    font-size: 15px;
+
+    cursor: pointer;
+
+    transition:
+        background 0.4s ease,
+        color 0.4s ease;
+
+}
+
+
+.enter-button:hover {
+
+    background: #403c36;
+
+    color: #eee9df;
+
+}
+
+
+/* =========================================
+   WHEN ENTER IS CLICKED
+   INTRO DISAPPEARS
+========================================= */
+
+#enter-room:checked ~ .intro {
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+}
+
+
+/* =========================================
+   ROOM
+========================================= */
+
+.room {
+
+    position: relative;
+
+    width: 100vw;
+
+    height: 100vh;
+
+    overflow: hidden;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition:
+        opacity 2s ease;
+
+}
+
+
+/* Reveal room after entering */
+
+#enter-room:checked ~ .room {
+
+    opacity: 1;
+
+    visibility: visible;
+
+}
+
+
+/* =========================================
+   BACK WALL
+========================================= */
+
+.back-wall {
+
+    position: absolute;
+
+    top: 0;
+
+    left: 15%;
+
+    width: 70%;
+
+    height: 68%;
+
+    background: #e7e1d6;
+
+    border-left:
+        1px solid #d1c9bb;
+
+    border-right:
+        1px solid #d1c9bb;
+
+}
+
+
+/* =========================================
+   LEFT WALL
+========================================= */
+
+.left-wall {
+
+    position: absolute;
+
+    top: 0;
+
+    left: 0;
+
+    width: 15%;
+
+    height: 68%;
+
+    background: #dcd5c9;
+
+}
+
+
+/* =========================================
+   FLOOR
+========================================= */
+
+.floor {
+
+    position: absolute;
+
+    bottom: 0;
+
+    left: 0;
+
+    width: 100%;
+
+    height: 32%;
+
+    background: #c9bdab;
+
+}
+
+
+/* =========================================
+   WINDOW
+========================================= */
+
+.window {
+
+    position: absolute;
+
+    top: 18%;
+
+    left: 42%;
+
+    width: 150px;
+
+    height: 190px;
+
+    background: #d8e0df;
+
+    border:
+        8px solid #f2eee6;
+
+    box-shadow:
+        0 0 0 1px #bcb4a8;
+
+}
+
+
+.window-vertical {
+
+    position: absolute;
+
+    left: 50%;
+
+    top: 0;
+
+    width: 2px;
+
+    height: 100%;
+
+    background: #eee9df;
+
+}
+
+
+.window-horizontal {
+
+    position: absolute;
+
+    left: 0;
+
+    top: 50%;
+
+    width: 100%;
+
+    height: 2px;
+
+    background: #eee9df;
+
+}
+
+
+/* =========================================
+   PICTURE FRAME
+========================================= */
+
+.picture-frame {
+
+    position: absolute;
+
+    top: 28%;
+
+    left: 18%;
+
+    width: 80px;
+
+    height: 105px;
+
+    border:
+        7px solid #8b765f;
+
+    background: #ddd3c3;
+
+}
+
+
+/* =========================================
+   DOOR
+========================================= */
+
+.door {
+
+    position: absolute;
+
+    left: 30%;
+
+    bottom: 0;
+
+    width: 100px;
+
+    height: 240px;
+
+    background: #a9977e;
+
+    border:
+        5px solid #8d7b65;
+
+}
+
+
+.door::after {
+
+    content: "";
+
+    position: absolute;
+
+    right: 12px;
+
+    top: 50%;
+
+    width: 8px;
+
+    height: 8px;
+
+    border-radius: 50%;
+
+    background: #403c36;
+
+}
+
+
+/* =========================================
+   RUG
+========================================= */
+
+.rug {
+
+    position: absolute;
+
+    left: 28%;
+
+    top: 30%;
+
+    width: 43%;
+
+    height: 55%;
+
+    background: #b9aa96;
+
+    opacity: 0.55;
+
+    transform:
+        perspective(400px)
+        rotateX(35deg);
+
+}
+
+
+/* =========================================
+   CHAIR
+========================================= */
+
+.chair {
+
+    position: absolute;
+
+    left: 55%;
+
+    top: 15%;
+
+    width: 120px;
+
+    height: 150px;
+
+}
+
+
+.chair-back {
+
+    position: absolute;
+
+    left: 15px;
+
+    width: 85px;
+
+    height: 85px;
+
+    background: #887c6e;
+
+    border-radius:
+        5px 5px 0 0;
+
+}
+
+
+.chair-seat {
+
+    position: absolute;
+
+    top: 80px;
+
+    width: 105px;
+
+    height: 25px;
+
+    background: #75695c;
+
+    border-radius: 3px;
+
+}
+
+
+.chair-leg {
+
+    position: absolute;
+
+    top: 100px;
+
+    width: 8px;
+
+    height: 50px;
+
+    background: #574f46;
+
+}
+
+
+.chair-leg-left {
+
+    left: 20px;
+
+}
+
+
+.chair-leg-right {
+
+    right: 20px;
+
+}
+
+
+/* =========================================
+   TABLE
+========================================= */
+
+.table {
+
+    position: absolute;
+
+    right: 13%;
+
+    top: 20%;
+
+    width: 150px;
+
+    height: 150px;
+
+}
+
+
+.table-top {
+
+    position: absolute;
+
+    width: 150px;
+
+    height: 25px;
+
+    background: #806d59;
+
+    border-radius: 3px;
+
+}
+
+
+.table-leg {
+
+    position: absolute;
+
+    top: 22px;
+
+    width: 10px;
+
+    height: 120px;
+
+    background: #655748;
+
+}
+
+
+.table-leg-left {
+
+    left: 20px;
+
+}
+
+
+.table-leg-right {
+
+    right: 20px;
+
+}
+
+
+/* =========================================
+   OBJECTS
+
+   The objects are present in the HTML,
+   but completely invisible at first.
+========================================= */
+
+.object {
+
+    position: absolute;
+
+    width: 100px;
+
+    height: 100px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    opacity: 0;
+
+    transform:
+        scale(0.8);
+
+}
+
+
+/* Object images */
+
+.object img {
+
+    max-width: 100%;
+
+    max-height: 100%;
+
+    object-fit: contain;
+
+}
+
+
+/* =========================================
+   OBJECT LOCATIONS
+========================================= */
+
+
+/* Teacup */
+
+.object-one {
+
+    right: 16%;
+
+    top: 15%;
+
+    animation:
+        reveal-one 3s ease forwards;
+
+    animation-delay: 45s;
+
+}
+
+
+/* Pressed flower */
+
+.object-two {
+
+    left: 40%;
+
+    top: 48%;
+
+    animation:
+        reveal-two 3s ease forwards;
+
+    animation-delay: 90s;
+
+}
+
+
+/* Postcard */
+
+.object-three {
+
+    left: 23%;
+
+    top: 38%;
+
+    animation:
+        reveal-three 3s ease forwards;
+
+    animation-delay: 135s;
+
+}
+
+
+/* Photograph */
+
+.object-four {
+
+    left: 58%;
+
+    top: 64%;
+
+    animation:
+        reveal-four 3s ease forwards;
+
+    animation-delay: 180s;
+
+}
+
+
+/* =========================================
+   OBJECT REVEAL ANIMATIONS
+========================================= */
+
+@keyframes reveal-one {
+
+    0% {
+
+        opacity: 0;
+
+        transform:
+            scale(0.8);
+
+    }
+
+    100% {
+
+        opacity: 1;
+
+        transform:
+            scale(1);
+
+    }
+
+}
+
+
+@keyframes reveal-two {
+
+    0% {
+
+        opacity: 0;
+
+        transform:
+            scale(0.8);
+
+    }
+
+    100% {
+
+        opacity: 1;
+
+        transform:
+            scale(1);
+
+    }
+
+}
+
+
+@keyframes reveal-three {
+
+    0% {
+
+        opacity: 0;
+
+        transform:
+            scale(0.8);
+
+    }
+
+    100% {
+
+        opacity: 1;
+
+        transform:
+            scale(1);
+
+    }
+
+}
+
+
+@keyframes reveal-four {
+
+    0% {
+
+        opacity: 0;
+
+        transform:
+            scale(0.8);
+
+    }
+
+    100% {
+
+        opacity: 1;
+
+        transform:
+            scale(1);
+
+    }
+
+}
+
+
+/* =========================================
+   PERSON
+========================================= */
+
+.person {
+
+    position: absolute;
+
+    left: 8%;
+
+    top: 45%;
+
+    width: 45px;
+
+    height: 100px;
+
+    z-index: 20;
+
+    animation:
+        person-journey 190s linear forwards;
+
+}
+
+
+/* =========================================
+   PERSON BODY
+========================================= */
+
+.head {
+
+    position: absolute;
+
+    top: 0;
+
+    left: 12px;
+
+    width: 20px;
+
+    height: 20px;
+
+    background: #51483f;
+
+    border-radius: 50%;
+
+}
+
+
+.body {
+
+    position: absolute;
+
+    top: 18px;
+
+    left: 9px;
+
+    width: 25px;
+
+    height: 45px;
+
+    background: #6c7470;
+
+    border-radius:
+        8px 8px 4px 4px;
+
+}
+
+
+.arm {
+
+    position: absolute;
+
+    top: 23px;
+
+    width: 7px;
+
+    height: 35px;
+
+    background: #51483f;
+
+    border-radius: 10px;
+
+}
+
+
+.left-arm {
+
+    left: 3px;
+
+    transform:
+        rotate(12deg);
+
+}
+
+
+.right-arm {
+
+    right: 3px;
+
+    transform:
+        rotate(-12deg);
+
+}
+
+
+.leg {
+
+    position: absolute;
+
+    top: 59px;
+
+    width: 8px;
+
+    height: 38px;
+
+    background: #403c36;
+
+    border-radius: 5px;
+
+}
+
+
+.left-leg {
+
+    left: 11px;
+
+}
+
+
+.right-leg {
+
+    right: 10px;
+
+}
+
+
+/* =========================================
+   PERSON JOURNEY
+
+   The figure moves through the room
+   without telling the viewer where
+   or when it will stop.
+========================================= */
+
+@keyframes person-journey {
+
+    /* Enter room */
+
+    0% {
+
+        left: 8%;
+
+        top: 45%;
+
+    }
+
+
+    /* Walk toward table */
+
+    20% {
+
+        left: 68%;
+
+        top: 38%;
+
+    }
+
+
+    /* Pause */
+
+    24% {
+
+        left: 68%;
+
+        top: 38%;
+
+    }
+
+
+    /* Walk toward center */
+
+    40% {
+
+        left: 43%;
+
+        top: 55%;
+
+    }
+
+
+    /* Pause */
+
+    45% {
+
+        left: 43%;
+
+        top: 55%;
+
+    }
+
+
+    /* Walk toward left */
+
+    60% {
+
+        left: 23%;
+
+        top: 40%;
+
+    }
+
+
+    /* Pause */
+
+    65% {
+
+        left: 23%;
+
+        top: 40%;
+
+    }
+
+
+    /* Walk toward chair */
+
+    80% {
+
+        left: 58%;
+
+        top: 63%;
+
+    }
+
+
+    /* Final pause */
+
+    90% {
+
+        left: 58%;
+
+        top: 63%;
+
+    }
+
+
+    /* Remain still */
+
+    100% {
+
+        left: 58%;
+
+        top: 63%;
+
+    }
+
+}
+
+
+/* =========================================
+   WALKING MOVEMENT
+========================================= */
+
+.person .left-leg {
+
+    animation:
+        walk-left 0.7s infinite alternate;
+
+}
+
+
+.person .right-leg {
+
+    animation:
+        walk-right 0.7s infinite alternate;
+
+}
+
+
+.person .left-arm {
+
+    animation:
+        arm-left 0.7s infinite alternate;
+
+}
+
+
+.person .right-arm {
+
+    animation:
+        arm-right 0.7s infinite alternate;
+
+}
+
+
+@keyframes walk-left {
+
+    from {
+
+        transform:
+            rotate(20deg);
+
+    }
+
+    to {
+
+        transform:
+            rotate(-20deg);
+
+    }
+
+}
+
+
+@keyframes walk-right {
+
+    from {
+
+        transform:
+            rotate(-20deg);
+
+    }
+
+    to {
+
+        transform:
+            rotate(20deg);
+
+    }
+
+}
+
+
+@keyframes arm-left {
+
+    from {
+
+        transform:
+            rotate(-20deg);
+
+    }
+
+    to {
+
+        transform:
+            rotate(20deg);
+
+    }
+
+}
+
+
+@keyframes arm-right {
+
+    from {
+
+        transform:
+            rotate(20deg);
+
+    }
+
+    to {
+
+        transform:
+            rotate(-20deg);
+
+    }
+
+}
+
+
+/* =========================================
+   ROOM MESSAGE
+========================================= */
+
+.room-message {
+
+    position: absolute;
+
+    left: 35px;
+
+    bottom: 30px;
+
+    z-index: 50;
+
+    font-size: 15px;
+
+    font-style: italic;
+
+    opacity: 0.5;
+
+    animation:
+        message-disappear 50s
+        ease forwards;
+
+}
+
+
+@keyframes message-disappear {
+
+    0% {
+
+        opacity: 0.5;
+
+    }
+
+    70% {
+
+        opacity: 0.5;
+
+    }
+
+    100% {
+
+        opacity: 0;
+
+    }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+
+    .back-wall {
+
+        left: 0;
+
+        width: 100%;
+
+    }
+
+
+    .left-wall {
+
+        display: none;
+
+    }
+
+
+    .window {
+
+        left: 35%;
+
+    }
+
+
+    .object {
+
+        width: 70px;
+
+        height: 70px;
+
+    }
+
+
+    .room-message {
+
+        left: 20px;
+
+        bottom: 20px;
+
+    }
+
+}
