@@ -169,13 +169,25 @@ h1 {
     width: 70%;
     height: 68%;
 
-    background: #e7e1d6;
+    background: linear-gradient(to bottom, #f3ede4 0%, #e7e1d6 55%, #ddd4c6 100%);
 
     border-left:
         1px solid #d1c9bb;
 
     border-right:
         1px solid #d1c9bb;
+}
+
+/* Baseboard */
+
+.back-wall::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    background: #c3b7a6;
 }
 
 
@@ -209,7 +221,7 @@ h1 {
     width: 100%;
     height: 32%;
 
-    background: #c9bdab;
+    background: linear-gradient(to bottom, #c9bdab 0%, #b7aa95 40%, #a5957f 100%);
 }
 
 
@@ -226,13 +238,27 @@ h1 {
     width: 150px;
     height: 190px;
 
-    background: #d8e0df;
+    background: linear-gradient(to bottom, #b9d5f0 0%, #8fb9dd 50%, #6fa0c7 100%);
 
     border:
         8px solid #f2eee6;
 
     box-shadow:
         0 0 0 1px #bcb4a8;
+}
+
+/* Simple skyline */
+
+.window::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 10px;
+    width: 130px;
+    height: 60px;
+    background:
+        linear-gradient(to top, rgba(60, 80, 100, 0.9), rgba(60, 80, 100, 0.0));
+    clip-path: polygon(0% 100%, 0% 40%, 20% 30%, 35% 45%, 50% 25%, 65% 40%, 80% 30%, 100% 45%, 100% 100%);
 }
 
 .window-vertical {
@@ -277,6 +303,19 @@ h1 {
         7px solid #8b765f;
 
     background: #ddd3c3;
+
+    box-shadow:
+        0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+/* Simple art inside frame */
+
+.picture-frame::before {
+    content: "";
+    position: absolute;
+    inset: 8px;
+    background: linear-gradient(135deg, #c9d8e2, #f0c7b3);
+    clip-path: polygon(0% 100%, 0% 40%, 40% 20%, 70% 40%, 100% 20%, 100% 100%);
 }
 
 
@@ -297,6 +336,9 @@ h1 {
 
     border:
         5px solid #8d7b65;
+
+    box-shadow:
+        -6px 0 12px rgba(0, 0, 0, 0.12);
 }
 
 .door::after {
@@ -329,13 +371,227 @@ h1 {
     width: 43%;
     height: 55%;
 
-    background: #b9aa96;
+    background: radial-gradient(circle at 50% 40%, #cbbca7 0%, #b19f86 45%, #9a8a72 100%);
 
-    opacity: 0.55;
+    opacity: 0.7;
 
     transform:
         perspective(400px)
         rotateX(35deg);
+
+    box-shadow:
+        0 25px 40px rgba(0, 0, 0, 0.18);
+}
+
+
+/* =========================================
+   BED
+========================================= */
+
+.bed {
+    position: absolute;
+
+    left: 6%;
+    top: 35%;
+
+    width: 200px;
+    height: 120px;
+}
+
+/* Bed frame */
+
+.bed-frame {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 40px;
+    background: #8c7a64;
+    border-radius: 4px;
+    box-shadow:
+        0 8px 18px rgba(0, 0, 0, 0.18);
+}
+
+/* Mattress */
+
+.bed-mattress {
+    position: absolute;
+    bottom: 40px;
+    width: 100%;
+    height: 35px;
+    background: #f4f0e7;
+    border-radius: 6px 6px 3px 3px;
+}
+
+/* Blanket */
+
+.bed-blanket {
+    position: absolute;
+    bottom: 40px;
+    left: 10px;
+    width: 150px;
+    height: 30px;
+    background: linear-gradient(to right, #b3c4d5, #9aaec4);
+    border-radius: 6px 6px 3px 3px;
+}
+
+/* Pillow */
+
+.bed-pillow {
+    position: absolute;
+    bottom: 70px;
+    right: 10px;
+    width: 55px;
+    height: 20px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow:
+        0 3px 6px rgba(0, 0, 0, 0.12);
+}
+
+
+/* =========================================
+   NIGHTSTAND + LAMP
+========================================= */
+
+.nightstand {
+    position: absolute;
+    left: 22%;
+    top: 40%;
+
+    width: 70px;
+    height: 80px;
+}
+
+/* Table */
+
+.nightstand-body {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 45px;
+    background: #8b745e;
+    border-radius: 4px;
+    box-shadow:
+        0 6px 14px rgba(0, 0, 0, 0.16);
+}
+
+/* Drawer line */
+
+.nightstand-body::before {
+    content: "";
+    position: absolute;
+    top: 18px;
+    left: 10px;
+    right: 10px;
+    height: 2px;
+    background: #6f5f4d;
+}
+
+/* Handle */
+
+.nightstand-body::after {
+    content: "";
+    position: absolute;
+    top: 14px;
+    left: 50%;
+    width: 12px;
+    height: 4px;
+    transform: translateX(-50%);
+    border-radius: 10px;
+    background: #d9cbb8;
+}
+
+/* Lamp base */
+
+.lamp-base {
+    position: absolute;
+    bottom: 45px;
+    left: 50%;
+    width: 18px;
+    height: 6px;
+    transform: translateX(-50%);
+    background: #6c5a48;
+    border-radius: 10px;
+}
+
+/* Lamp stem */
+
+.lamp-stem {
+    position: absolute;
+    bottom: 51px;
+    left: 50%;
+    width: 4px;
+    height: 18px;
+    transform: translateX(-50%);
+    background: #6c5a48;
+}
+
+/* Lamp shade */
+
+.lamp-shade {
+    position: absolute;
+    bottom: 69px;
+    left: 50%;
+    width: 40px;
+    height: 24px;
+    transform: translateX(-50%);
+    background: #f3e4cf;
+    border-radius: 40% 40% 50% 50%;
+    box-shadow:
+        0 4px 10px rgba(0, 0, 0, 0.12);
+}
+
+
+/* =========================================
+   PLANT
+========================================= */
+
+.plant {
+    position: absolute;
+    right: 10%;
+    top: 42%;
+
+    width: 70px;
+    height: 110px;
+}
+
+/* Pot */
+
+.plant-pot {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 35px;
+    background: #9b7b5a;
+    border-radius: 0 0 12px 12px;
+    box-shadow:
+        0 6px 14px rgba(0, 0, 0, 0.16);
+}
+
+/* Leaves */
+
+.plant-leaf {
+    position: absolute;
+    bottom: 35px;
+    width: 26px;
+    height: 50px;
+    background: #5c8b5f;
+    border-radius: 50% 50% 40% 40%;
+}
+
+.plant-leaf.left {
+    left: 4px;
+    transform: rotate(-12deg);
+}
+
+.plant-leaf.center {
+    left: 22px;
+    height: 60px;
+}
+
+.plant-leaf.right {
+    right: 4px;
+    transform: rotate(12deg);
 }
 
 
@@ -365,6 +621,9 @@ h1 {
 
     border-radius:
         5px 5px 0 0;
+
+    box-shadow:
+        0 6px 14px rgba(0, 0, 0, 0.16);
 }
 
 .chair-seat {
@@ -423,6 +682,9 @@ h1 {
     background: #806d59;
 
     border-radius: 3px;
+
+    box-shadow:
+        0 6px 14px rgba(0, 0, 0, 0.16);
 }
 
 .table-leg {
@@ -675,29 +937,29 @@ h1 {
     left: 8%;
     top: 45%;
 
-    width: 55px;
-    height: 125px;
+    width: 60px;
+    height: 135px;
 
     z-index: 20;
 
     animation:
-        person-journey 190s linear forwards;
+        person-journey 190s ease-in-out forwards;
 }
 
 
 /* =========================================
-   HEAD
+   HEAD + NECK
 ========================================= */
 
 .head {
 
     position: absolute;
 
-    top: 2px;
-    left: 18px;
+    top: 4px;
+    left: 19px;
 
-    width: 22px;
-    height: 25px;
+    width: 24px;
+    height: 26px;
 
     background: #e5b08d;
 
@@ -705,6 +967,19 @@ h1 {
         48% 48% 45% 45%;
 
     z-index: 3;
+}
+
+/* Neck */
+
+.neck {
+    position: absolute;
+    top: 26px;
+    left: 24px;
+    width: 14px;
+    height: 8px;
+    background: #e5b08d;
+    border-radius: 10px;
+    z-index: 2;
 }
 
 
@@ -718,11 +993,11 @@ h1 {
 
     position: absolute;
 
-    top: -5px;
+    top: -6px;
     left: -5px;
 
     width: 32px;
-    height: 43px;
+    height: 44px;
 
     background: #5a3d2e;
 
@@ -741,16 +1016,60 @@ h1 {
 
     position: absolute;
 
-    top: 1px;
-    left: -5px;
+    top: 2px;
+    left: -6px;
 
-    width: 11px;
+    width: 12px;
     height: 30px;
 
     background: #5a3d2e;
 
     border-radius:
         70% 20% 50% 70%;
+}
+
+
+/* Simple facial features */
+
+.face-features {
+    position: absolute;
+    top: 9px;
+    left: 5px;
+    width: 14px;
+    height: 10px;
+}
+
+/* Eyes */
+
+.face-features::before,
+.face-features::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: #3a2b23;
+}
+
+.face-features::before {
+    left: 0;
+}
+
+.face-features::after {
+    right: 0;
+}
+
+/* Mouth */
+
+.face-mouth {
+    position: absolute;
+    top: 13px;
+    left: 8px;
+    width: 8px;
+    height: 3px;
+    border-radius: 10px;
+    background: #d48f6a;
 }
 
 
@@ -762,18 +1081,21 @@ h1 {
 
     position: absolute;
 
-    top: 25px;
+    top: 30px;
     left: 12px;
 
-    width: 34px;
-    height: 47px;
+    width: 36px;
+    height: 50px;
 
     background: #e9e1d3;
 
     border-radius:
-        12px 12px 6px 6px;
+        12px 12px 8px 8px;
 
     z-index: 2;
+
+    box-shadow:
+        0 4px 10px rgba(0, 0, 0, 0.12);
 }
 
 
@@ -788,13 +1110,26 @@ h1 {
     top: 0;
     left: 9px;
 
-    width: 16px;
+    width: 18px;
     height: 7px;
 
     background: #d8cebe;
 
     border-radius:
         0 0 10px 10px;
+}
+
+/* Sweater stripe */
+
+.body::after {
+    content: "";
+    position: absolute;
+    bottom: 8px;
+    left: 4px;
+    right: 4px;
+    height: 6px;
+    background: rgba(200, 188, 170, 0.7);
+    border-radius: 10px;
 }
 
 
@@ -806,10 +1141,10 @@ h1 {
 
     position: absolute;
 
-    top: 29px;
+    top: 34px;
 
     width: 9px;
-    height: 39px;
+    height: 40px;
 
     background: #e9e1d3;
 
@@ -817,6 +1152,9 @@ h1 {
         8px;
 
     z-index: 1;
+
+    box-shadow:
+        0 2px 6px rgba(0, 0, 0, 0.12);
 }
 
 
@@ -827,7 +1165,7 @@ h1 {
     left: 6px;
 
     transform:
-        rotate(12deg);
+        rotate(10deg);
 }
 
 
@@ -838,7 +1176,7 @@ h1 {
     right: 6px;
 
     transform:
-        rotate(-12deg);
+        rotate(-10deg);
 }
 
 
@@ -872,12 +1210,12 @@ h1 {
 
     position: absolute;
 
-    top: 67px;
+    top: 72px;
 
-    width: 11px;
-    height: 43px;
+    width: 12px;
+    height: 45px;
 
-    background: #82a7bd;
+    background: linear-gradient(to right, #7c9fb5, #82a7bd);
 
     border-radius:
         3px 3px 7px 7px;
@@ -898,7 +1236,7 @@ h1 {
 
 .right-leg {
 
-    right: 14px;
+    right: 15px;
 }
 
 
@@ -915,7 +1253,7 @@ h1 {
 
     bottom: -6px;
 
-    width: 21px;
+    width: 22px;
     height: 9px;
 
     background: #f4f1e9;
@@ -932,19 +1270,19 @@ h1 {
 
 .left-leg::after {
 
-    left: -8px;
+    left: -9px;
 
     transform:
-        rotate(8deg);
+        rotate(6deg);
 }
 
 
 .right-leg::after {
 
-    right: -8px;
+    right: -9px;
 
     transform:
-        rotate(-8deg);
+        rotate(-6deg);
 }
 
 
@@ -955,63 +1293,81 @@ h1 {
 @keyframes person-journey {
 
     0% {
-
         left: 8%;
         top: 45%;
+        transform: translateY(0);
     }
 
-    20% {
-
+    15% {
         left: 10%;
-        top: 25%;
+        top: 32%;
+        transform: translateY(-2px);
     }
 
-    24% {
-
+    25% {
         left: 10%;
         top: 25%;
+        transform: translateY(0);
+    }
+
+    30% {
+        left: 10%;
+        top: 25%;
+        transform: translateY(1px);
     }
 
     40% {
-
         left: 29%;
         top: 48%;
+        transform: translateY(0);
     }
 
     45% {
-
         left: 29%;
         top: 48%;
+        transform: translateY(-1px);
+    }
+
+    55% {
+        left: 34%;
+        top: 60%;
+        transform: translateY(0);
     }
 
     60% {
-
         left: 38%;
         top: 68%;
+        transform: translateY(1px);
     }
 
     65% {
-
         left: 38%;
         top: 68%;
+        transform: translateY(0);
+    }
+
+    75% {
+        left: 52%;
+        top: 50%;
+        transform: translateY(-1px);
     }
 
     80% {
-
         left: 62%;
         top: 40%;
+        transform: translateY(0);
     }
 
     90% {
-
         left: 62%;
         top: 40%;
+        transform: translateY(1px);
     }
 
     100% {
-
         left: 62%;
         top: 40%;
+        transform: translateY(0);
     }
 }
 
@@ -1023,25 +1379,25 @@ h1 {
 .person .left-leg {
 
     animation:
-        walk-left 0.7s infinite alternate;
+        walk-left 0.9s infinite alternate;
 }
 
 .person .right-leg {
 
     animation:
-        walk-right 0.7s infinite alternate;
+        walk-right 0.9s infinite alternate;
 }
 
 .person .left-arm {
 
     animation:
-        arm-left 0.7s infinite alternate;
+        arm-left 0.9s infinite alternate;
 }
 
 .person .right-arm {
 
     animation:
-        arm-right 0.7s infinite alternate;
+        arm-right 0.9s infinite alternate;
 }
 
 
@@ -1054,13 +1410,13 @@ h1 {
     from {
 
         transform:
-            rotate(20deg);
+            rotate(14deg);
     }
 
     to {
 
         transform:
-            rotate(-20deg);
+            rotate(-8deg);
     }
 }
 
@@ -1070,13 +1426,13 @@ h1 {
     from {
 
         transform:
-            rotate(-20deg);
+            rotate(-14deg);
     }
 
     to {
 
         transform:
-            rotate(20deg);
+            rotate(8deg);
     }
 }
 
@@ -1090,13 +1446,13 @@ h1 {
     from {
 
         transform:
-            rotate(-20deg);
+            rotate(-14deg);
     }
 
     to {
 
         transform:
-            rotate(20deg);
+            rotate(10deg);
     }
 }
 
@@ -1106,13 +1462,13 @@ h1 {
     from {
 
         transform:
-            rotate(20deg);
+            rotate(14deg);
     }
 
     to {
 
         transform:
-            rotate(-20deg);
+            rotate(-10deg);
     }
 }
 
@@ -1204,6 +1560,19 @@ h1 {
 
         left: 20px;
         bottom: 20px;
+    }
+
+    .bed {
+        left: 4%;
+        width: 180px;
+    }
+
+    .nightstand {
+        left: 22%;
+    }
+
+    .plant {
+        right: 6%;
     }
 
 }
