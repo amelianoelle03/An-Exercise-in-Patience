@@ -1,15 +1,11 @@
 /* =========================================
    GIVE IT TIME
    An Exercise in Patience
-
+   Animal Crossing–inspired
    HTML + CSS ONLY
 ========================================= */
 
-
-/* =========================================
-   BASIC RESET
-========================================= */
-
+/* BASIC RESET */
 * {
     box-sizing: border-box;
 }
@@ -23,131 +19,350 @@ body {
 }
 
 body {
-    background: #eee9df;
+    background: #cfe7c9; /* soft AC-style green */
     color: #403c36;
-
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-
+    font-family: "Georgia", "Times New Roman", serif;
     overflow: hidden;
 }
 
-
-/* =========================================
-   HIDE CHECKBOX
-========================================= */
-
+/* HIDE CHECKBOX */
 #enter-room {
     position: absolute;
     opacity: 0;
     pointer-events: none;
 }
 
-
 /* =========================================
-   INTRODUCTION
+   OUTSIDE INTRO SCENE
 ========================================= */
 
-.intro {
+.intro-outside {
     position: fixed;
     inset: 0;
-
     z-index: 100;
-
     display: flex;
     align-items: center;
     justify-content: center;
-
-    background: #eee9df;
-
-    text-align: center;
-
+    background: #9fd6ff;
+    overflow: hidden;
     transition:
-        opacity 2s ease,
-        visibility 2s ease;
+        opacity 1.8s ease,
+        visibility 1.8s ease;
 }
 
-.intro-content {
-    width: min(600px, 85vw);
+/* Sky & ground */
+.sky {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(#9fd6ff, #bfe6ff);
+    z-index: -2;
 }
 
-.eyebrow {
-    margin-bottom: 25px;
+.ground {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 35%;
+    background: #b7d58b;
+    background-image:
+        radial-gradient(circle at 10px 10px, #cbe59c 2px, transparent 0),
+        radial-gradient(circle at 40px 30px, #cbe59c 2px, transparent 0);
+    background-size: 60px 60px;
+    z-index: -1;
+}
 
+/* Trees */
+.tree {
+    position: absolute;
+    bottom: 20%;
+    width: 90px;
+    height: 120px;
+}
+
+.tree-left {
+    left: 8%;
+}
+
+.tree-right {
+    right: 8%;
+}
+
+.tree::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 35px;
+    width: 20px;
+    height: 50px;
+    background: #8b5a2b;
+    border-radius: 6px;
+}
+
+.tree::after {
+    content: "";
+    position: absolute;
+    bottom: 40px;
+    left: 5px;
+    width: 80px;
+    height: 80px;
+    background: #6fbf5b;
+    border-radius: 50%;
+    box-shadow:
+        0 -10px 0 #6fbf5b,
+        0 10px 0 #6fbf5b;
+}
+
+/* House */
+.house {
+    position: absolute;
+    bottom: 18%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 220px;
+    height: 200px;
+}
+
+.house-body {
+    position: absolute;
+    bottom: 0;
+    left: 20px;
+    width: 180px;
+    height: 130px;
+    background: #f5e4c8;
+    border-radius: 12px;
+    box-shadow: 0 6px 0 rgba(0, 0, 0, 0.08);
+}
+
+.house-roof {
+    position: absolute;
+    bottom: 120px;
+    left: 10px;
+    width: 200px;
+    height: 70px;
+    background: #d46b4c;
+    border-radius: 12px 12px 0 0;
+    box-shadow: 0 4px 0 rgba(0, 0, 0, 0.08);
+}
+
+.house-door {
+    position: absolute;
+    bottom: 0;
+    left: 95px;
+    width: 40px;
+    height: 80px;
+    background: #c49a6c;
+    border-radius: 10px;
+    box-shadow: inset 0 0 0 2px #a57a4a;
+}
+
+.house-door::after {
+    content: "";
+    position: absolute;
+    right: 8px;
+    top: 40px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #403c36;
+}
+
+.house-window {
+    position: absolute;
+    bottom: 50px;
+    width: 40px;
+    height: 40px;
+    background: #e0f4ff;
+    border-radius: 8px;
+    box-shadow: inset 0 0 0 2px #c4d7e5;
+}
+
+.house-window-left {
+    left: 40px;
+}
+
+.house-window-right {
+    right: 40px;
+}
+
+/* Villager outside */
+.villager {
+    position: absolute;
+    bottom: 18%;
+    left: 30%;
+    width: 60px;
+    height: 120px;
+    animation: villager-bob 1.4s ease-in-out infinite;
+}
+
+.villager-head {
+    position: absolute;
+    top: 0;
+    left: 18px;
+    width: 24px;
+    height: 26px;
+    background: #f2c29b;
+    border-radius: 50%;
+}
+
+.villager-body {
+    position: absolute;
+    top: 26px;
+    left: 12px;
+    width: 36px;
+    height: 40px;
+    background: #f7f0d8;
+    border-radius: 12px;
+}
+
+.villager-arm {
+    position: absolute;
+    top: 30px;
+    width: 10px;
+    height: 30px;
+    background: #f7f0d8;
+    border-radius: 8px;
+}
+
+.villager-arm-left {
+    left: 4px;
+    transform: rotate(10deg);
+}
+
+.villager-arm-right {
+    right: 4px;
+    transform: rotate(-10deg);
+}
+
+.villager-leg {
+    position: absolute;
+    top: 60px;
+    width: 12px;
+    height: 35px;
+    background: #7fa9c5;
+    border-radius: 6px;
+}
+
+.villager-leg-left {
+    left: 14px;
+}
+
+.villager-leg-right {
+    right: 14px;
+}
+
+.villager-leg::after {
+    content: "";
+    position: absolute;
+    bottom: -6px;
+    width: 22px;
+    height: 9px;
+    background: #f4f1e9;
+    border-radius: 10px 10px 5px 5px;
+    border-bottom: 2px solid #cfc8bd;
+}
+
+/* Villager bobbing */
+@keyframes villager-bob {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-4px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* Speech bubble */
+.speech-bubble {
+    position: absolute;
+    top: 12%;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 380px;
+    padding: 14px 18px;
+    background: #fffaf0;
+    border-radius: 18px;
+    box-shadow: 0 4px 12px rgba(40, 30, 20, 0.15);
     font-family: Arial, sans-serif;
-    font-size: 11px;
-    letter-spacing: 4px;
-
-    opacity: 0.5;
+    font-size: 15px;
+    text-align: center;
 }
 
-h1 {
-    margin: 0 0 35px 0;
-
-    font-size:
-        clamp(55px, 8vw, 110px);
-
-    font-weight: normal;
-    line-height: 0.95;
+.speech-bubble::after {
+    content: "";
+    position: absolute;
+    bottom: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 22px;
+    height: 22px;
+    background: #fffaf0;
+    border-radius: 50%;
 }
 
-.intro-line {
-    margin: 5px 0;
-
-    font-size: 19px;
-    line-height: 1.7;
+.button-a {
+    display: inline-block;
+    padding: 2px 8px;
+    margin: 0 4px;
+    background: #7fcf6b;
+    color: #1f3b1f;
+    border-radius: 999px;
+    font-weight: bold;
 }
 
+/* AC-style button */
 .enter-button {
     display: inline-block;
-
     margin-top: 40px;
-    padding: 15px 30px;
-
-    border: 1px solid #403c36;
-
-    background: transparent;
-
+    padding: 14px 32px;
+    border-radius: 999px;
+    border: 2px solid #3c5b2f;
+    background: #f7f0d8;
     font-size: 15px;
-
+    font-family: Arial, sans-serif;
     cursor: pointer;
-
     transition:
-        background 0.4s ease,
-        color 0.4s ease;
+        background 0.25s ease,
+        transform 0.15s ease,
+        box-shadow 0.25s ease;
+}
+
+.ac-button {
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 4px 0 #3c5b2f;
 }
 
 .enter-button:hover {
-    background: #403c36;
-    color: #eee9df;
+    background: #ffeec0;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 0 #3c5b2f;
 }
 
-
-/* =========================================
-   ENTER ROOM
-========================================= */
-
-#enter-room:checked ~ .intro {
+/* Hide intro when room is entered */
+#enter-room:checked ~ .intro-outside {
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
 }
 
+/* =========================================
+   ROOM (INSIDE)
+========================================= */
+
 .room {
     position: relative;
-
     width: 100vw;
     height: 100vh;
-
     overflow: hidden;
-
     opacity: 0;
     visibility: hidden;
-
-    transition:
-        opacity 2s ease;
+    transition: opacity 1.8s ease;
 }
 
 #enter-room:checked ~ .room {
@@ -155,498 +370,237 @@ h1 {
     visibility: visible;
 }
 
-
-/* =========================================
-   BACK WALL
-========================================= */
-
+/* BACK WALL */
 .back-wall {
     position: absolute;
-
     top: 0;
     left: 15%;
-
     width: 70%;
     height: 68%;
-
-    background: linear-gradient(to bottom, #f3ede4 0%, #e7e1d6 55%, #ddd4c6 100%);
-
-    border-left:
-        1px solid #d1c9bb;
-
-    border-right:
-        1px solid #d1c9bb;
+    background: #f5e9d8;
+    border-left: 1px solid #d1c9bb;
+    border-right: 1px solid #d1c9bb;
 }
 
-/* Baseboard */
-
-.back-wall::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 10px;
-    background: #c3b7a6;
-}
-
-
-/* =========================================
-   LEFT WALL
-========================================= */
-
+/* LEFT WALL */
 .left-wall {
     position: absolute;
-
     top: 0;
     left: 0;
-
     width: 15%;
     height: 68%;
-
-    background: #dcd5c9;
+    background: #e0d3c1;
 }
 
-
-/* =========================================
-   FLOOR
-========================================= */
-
+/* FLOOR */
 .floor {
     position: absolute;
-
     bottom: 0;
     left: 0;
-
     width: 100%;
     height: 32%;
-
-    background: linear-gradient(to bottom, #c9bdab 0%, #b7aa95 40%, #a5957f 100%);
+    background: #c9bdab;
+    background-image:
+        linear-gradient(90deg, rgba(0,0,0,0.05) 1px, transparent 1px),
+        linear-gradient(0deg, rgba(0,0,0,0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
 }
 
-
-/* =========================================
-   WINDOW
-========================================= */
-
+/* Window */
 .window {
     position: absolute;
-
     top: 18%;
     left: 42%;
-
     width: 150px;
     height: 190px;
-
-    background: linear-gradient(to bottom, #b9d5f0 0%, #8fb9dd 50%, #6fa0c7 100%);
-
-    border:
-        8px solid #f2eee6;
-
-    box-shadow:
-        0 0 0 1px #bcb4a8;
-}
-
-/* Simple skyline */
-
-.window::before {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 10px;
-    width: 130px;
-    height: 60px;
-    background:
-        linear-gradient(to top, rgba(60, 80, 100, 0.9), rgba(60, 80, 100, 0.0));
-    clip-path: polygon(0% 100%, 0% 40%, 20% 30%, 35% 45%, 50% 25%, 65% 40%, 80% 30%, 100% 45%, 100% 100%);
+    background: #d8e0df;
+    border: 8px solid #f2eee6;
+    box-shadow: 0 0 0 1px #bcb4a8;
 }
 
 .window-vertical {
     position: absolute;
-
     left: 50%;
     top: 0;
-
     width: 2px;
     height: 100%;
-
     background: #eee9df;
 }
 
 .window-horizontal {
     position: absolute;
-
     left: 0;
     top: 50%;
-
     width: 100%;
     height: 2px;
-
     background: #eee9df;
 }
 
-
-/* =========================================
-   PICTURE FRAME
-========================================= */
-
+/* Picture frame */
 .picture-frame {
     position: absolute;
-
     top: 28%;
     left: 18%;
-
     width: 80px;
     height: 105px;
-
-    border:
-        7px solid #8b765f;
-
+    border: 7px solid #8b765f;
     background: #ddd3c3;
-
-    box-shadow:
-        0 4px 10px rgba(0, 0, 0, 0.08);
+    border-radius: 6px;
 }
 
-/* Simple art inside frame */
+/* Wall shelf */
+.wall-shelf {
+    position: absolute;
+    top: 22%;
+    right: 18%;
+    width: 120px;
+    height: 60px;
+}
 
-.picture-frame::before {
+.wall-shelf::before {
     content: "";
     position: absolute;
-    inset: 8px;
-    background: linear-gradient(135deg, #c9d8e2, #f0c7b3);
-    clip-path: polygon(0% 100%, 0% 40%, 40% 20%, 70% 40%, 100% 20%, 100% 100%);
+    bottom: 0;
+    left: 0;
+    width: 120px;
+    height: 10px;
+    background: #b89a74;
+    border-radius: 6px;
 }
 
+.shelf-book {
+    position: absolute;
+    bottom: 10px;
+    width: 20px;
+    height: 30px;
+    border-radius: 4px;
+}
 
-/* =========================================
-   DOOR
-========================================= */
+.shelf-book-one {
+    left: 10px;
+    background: #7fa9c5;
+}
 
+.shelf-book-two {
+    left: 36px;
+    background: #f0c27b;
+}
+
+.shelf-plant {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    width: 26px;
+    height: 26px;
+    background: #6fbf5b;
+    border-radius: 50%;
+}
+
+/* Door */
 .door {
     position: absolute;
-
     left: 30%;
     bottom: 0;
-
     width: 100px;
     height: 240px;
-
     background: #a9977e;
-
-    border:
-        5px solid #8d7b65;
-
-    box-shadow:
-        -6px 0 12px rgba(0, 0, 0, 0.12);
+    border: 5px solid #8d7b65;
+    border-radius: 8px 8px 0 0;
 }
 
 .door::after {
     content: "";
-
     position: absolute;
-
     right: 12px;
     top: 50%;
-
     width: 8px;
     height: 8px;
-
     border-radius: 50%;
-
     background: #403c36;
 }
 
-
-/* =========================================
-   RUG
-========================================= */
-
+/* Rug */
 .rug {
     position: absolute;
-
     left: 28%;
     top: 30%;
-
     width: 43%;
     height: 55%;
-
-    background: radial-gradient(circle at 50% 40%, #cbbca7 0%, #b19f86 45%, #9a8a72 100%);
-
+    background: #b9aa96;
     opacity: 0.7;
-
-    transform:
-        perspective(400px)
-        rotateX(35deg);
-
-    box-shadow:
-        0 25px 40px rgba(0, 0, 0, 0.18);
+    transform: perspective(400px) rotateX(35deg);
+    border-radius: 40px;
 }
 
-
-/* =========================================
-   BED
-========================================= */
-
+/* Bed */
 .bed {
     position: absolute;
-
     left: 6%;
-    top: 35%;
-
-    width: 200px;
+    top: 40%;
+    width: 180px;
     height: 120px;
 }
-
-/* Bed frame */
 
 .bed-frame {
     position: absolute;
     bottom: 0;
-    width: 100%;
-    height: 40px;
-    background: #8c7a64;
-    border-radius: 4px;
-    box-shadow:
-        0 8px 18px rgba(0, 0, 0, 0.18);
+    width: 180px;
+    height: 30px;
+    background: #8b765f;
+    border-radius: 10px;
 }
-
-/* Mattress */
 
 .bed-mattress {
     position: absolute;
-    bottom: 40px;
-    width: 100%;
-    height: 35px;
-    background: #f4f0e7;
-    border-radius: 6px 6px 3px 3px;
+    bottom: 30px;
+    width: 180px;
+    height: 40px;
+    background: #f7f0d8;
+    border-radius: 12px;
 }
-
-/* Blanket */
-
-.bed-blanket {
-    position: absolute;
-    bottom: 40px;
-    left: 10px;
-    width: 150px;
-    height: 30px;
-    background: linear-gradient(to right, #b3c4d5, #9aaec4);
-    border-radius: 6px 6px 3px 3px;
-}
-
-/* Pillow */
 
 .bed-pillow {
     position: absolute;
-    bottom: 70px;
-    right: 10px;
-    width: 55px;
-    height: 20px;
+    bottom: 60px;
+    left: 12px;
+    width: 60px;
+    height: 24px;
     background: #ffffff;
     border-radius: 12px;
-    box-shadow:
-        0 3px 6px rgba(0, 0, 0, 0.12);
 }
 
-
-/* =========================================
-   NIGHTSTAND + LAMP
-========================================= */
-
-.nightstand {
-    position: absolute;
-    left: 22%;
-    top: 40%;
-
-    width: 70px;
-    height: 80px;
-}
-
-/* Table */
-
-.nightstand-body {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 45px;
-    background: #8b745e;
-    border-radius: 4px;
-    box-shadow:
-        0 6px 14px rgba(0, 0, 0, 0.16);
-}
-
-/* Drawer line */
-
-.nightstand-body::before {
-    content: "";
-    position: absolute;
-    top: 18px;
-    left: 10px;
-    right: 10px;
-    height: 2px;
-    background: #6f5f4d;
-}
-
-/* Handle */
-
-.nightstand-body::after {
-    content: "";
-    position: absolute;
-    top: 14px;
-    left: 50%;
-    width: 12px;
-    height: 4px;
-    transform: translateX(-50%);
-    border-radius: 10px;
-    background: #d9cbb8;
-}
-
-/* Lamp base */
-
-.lamp-base {
-    position: absolute;
-    bottom: 45px;
-    left: 50%;
-    width: 18px;
-    height: 6px;
-    transform: translateX(-50%);
-    background: #6c5a48;
-    border-radius: 10px;
-}
-
-/* Lamp stem */
-
-.lamp-stem {
-    position: absolute;
-    bottom: 51px;
-    left: 50%;
-    width: 4px;
-    height: 18px;
-    transform: translateX(-50%);
-    background: #6c5a48;
-}
-
-/* Lamp shade */
-
-.lamp-shade {
-    position: absolute;
-    bottom: 69px;
-    left: 50%;
-    width: 40px;
-    height: 24px;
-    transform: translateX(-50%);
-    background: #f3e4cf;
-    border-radius: 40% 40% 50% 50%;
-    box-shadow:
-        0 4px 10px rgba(0, 0, 0, 0.12);
-}
-
-
-/* =========================================
-   PLANT
-========================================= */
-
-.plant {
-    position: absolute;
-    right: 10%;
-    top: 42%;
-
-    width: 70px;
-    height: 110px;
-}
-
-/* Pot */
-
-.plant-pot {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 35px;
-    background: #9b7b5a;
-    border-radius: 0 0 12px 12px;
-    box-shadow:
-        0 6px 14px rgba(0, 0, 0, 0.16);
-}
-
-/* Leaves */
-
-.plant-leaf {
-    position: absolute;
-    bottom: 35px;
-    width: 26px;
-    height: 50px;
-    background: #5c8b5f;
-    border-radius: 50% 50% 40% 40%;
-}
-
-.plant-leaf.left {
-    left: 4px;
-    transform: rotate(-12deg);
-}
-
-.plant-leaf.center {
-    left: 22px;
-    height: 60px;
-}
-
-.plant-leaf.right {
-    right: 4px;
-    transform: rotate(12deg);
-}
-
-
-/* =========================================
-   CHAIR
-========================================= */
-
+/* Chair */
 .chair {
     position: absolute;
-
     left: 55%;
     top: 15%;
-
     width: 120px;
     height: 150px;
 }
 
 .chair-back {
     position: absolute;
-
     left: 15px;
-
     width: 85px;
     height: 85px;
-
     background: #887c6e;
-
-    border-radius:
-        5px 5px 0 0;
-
-    box-shadow:
-        0 6px 14px rgba(0, 0, 0, 0.16);
+    border-radius: 5px 5px 0 0;
 }
 
 .chair-seat {
     position: absolute;
-
     top: 80px;
-
     width: 105px;
     height: 25px;
-
     background: #75695c;
-
     border-radius: 3px;
 }
 
 .chair-leg {
     position: absolute;
-
     top: 100px;
-
     width: 8px;
     height: 50px;
-
     background: #574f46;
 }
 
@@ -658,43 +612,28 @@ h1 {
     right: 20px;
 }
 
-
-/* =========================================
-   TABLE
-========================================= */
-
+/* Table */
 .table {
     position: absolute;
-
     right: 13%;
     top: 20%;
-
     width: 150px;
     height: 150px;
 }
 
 .table-top {
     position: absolute;
-
     width: 150px;
     height: 25px;
-
     background: #806d59;
-
     border-radius: 3px;
-
-    box-shadow:
-        0 6px 14px rgba(0, 0, 0, 0.16);
 }
 
 .table-leg {
     position: absolute;
-
     top: 22px;
-
     width: 10px;
     height: 120px;
-
     background: #655748;
 }
 
@@ -706,873 +645,492 @@ h1 {
     right: 20px;
 }
 
-
-/* =========================================
-   MEMORY OBJECTS
-========================================= */
-
-.memory {
+/* Table items */
+.table-item {
     position: absolute;
-
-    display: flex;
-    align-items: center;
-
-    gap: 18px;
-
-    width: 300px;
-
-    padding: 10px;
-
-    background: rgba(239, 233, 222, 0.96);
-
-    border-radius: 4px;
-
-    box-shadow:
-        0 5px 20px rgba(70, 60, 50, 0.08);
-
-    opacity: 0;
-
-    transform:
-        translateY(15px)
-        scale(0.96);
+    top: -10px;
 }
 
+.table-mug {
+    left: 30px;
+    width: 22px;
+    height: 22px;
+    background: #f7f0d8;
+    border-radius: 6px;
+}
 
-/* =========================================
-   MEMORY IMAGE
-========================================= */
+.table-mug::after {
+    content: "";
+    position: absolute;
+    right: -6px;
+    top: 6px;
+    width: 8px;
+    height: 10px;
+    border-radius: 10px;
+    border: 2px solid #f7f0d8;
+}
 
+.table-book {
+    right: 30px;
+    width: 40px;
+    height: 18px;
+    background: #7fa9c5;
+    border-radius: 4px;
+}
+
+/* Floor plant */
+.floor-plant {
+    position: absolute;
+    right: 6%;
+    bottom: 10%;
+    width: 60px;
+    height: 80px;
+}
+
+.plant-pot {
+    position: absolute;
+    bottom: 0;
+    width: 60px;
+    height: 26px;
+    background: #b89a74;
+    border-radius: 10px;
+}
+
+.plant-leaf {
+    position: absolute;
+    bottom: 26px;
+    width: 26px;
+    height: 40px;
+    background: #6fbf5b;
+    border-radius: 26px 26px 0 26px;
+}
+
+.plant-leaf-left {
+    left: 4px;
+    transform: rotate(-10deg);
+}
+
+.plant-leaf-right {
+    right: 4px;
+    transform: rotate(10deg);
+}
+
+/* MEMORY OBJECTS */
+.memory {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    width: 300px;
+    padding: 10px;
+    background: rgba(239, 233, 222, 0.96);
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(70, 60, 50, 0.08);
+    opacity: 0;
+    transform: translateY(15px) scale(0.96);
+}
+
+/* MEMORY IMAGE */
 .memory-image {
     flex-shrink: 0;
-
     width: 105px;
     height: 105px;
-
     display: flex;
     align-items: center;
     justify-content: center;
-
     background: #e5dccd;
-
     overflow: hidden;
+    border-radius: 10px;
 }
 
 .memory-image img {
     width: 100%;
     height: 100%;
-
     object-fit: contain;
 }
 
-
-/* =========================================
-   MEMORY TEXT
-========================================= */
-
+/* MEMORY TEXT */
 .memory-text {
     flex: 1;
 }
 
 .memory-text p {
     margin: 0;
-
     font-size: 15px;
     line-height: 1.45;
-
     font-style: italic;
 }
 
-
-/* =========================================
-   MEMORY POSITIONS
-========================================= */
-
-
-/* Pink bunny */
-
+/* MEMORY POSITIONS & REVEALS */
 .memory-one {
     left: 4%;
     top: 25%;
-
-    animation:
-        reveal-one 3s ease forwards;
-
-    animation-delay: 45s;
+    animation: reveal-one 3s ease forwards;
+    animation-delay: 20s;
 }
-
-
-/* Pressed flower */
 
 .memory-two {
     left: 29%;
     top: 48%;
-
-    animation:
-        reveal-two 3s ease forwards;
-
-    animation-delay: 90s;
+    animation: reveal-two 3s ease forwards;
+    animation-delay: 40s;
 }
-
-
-/* South Carolina postcard */
 
 .memory-three {
     left: 38%;
     top: 68%;
-
-    animation:
-        reveal-three 3s ease forwards;
-
-    animation-delay: 135s;
+    animation: reveal-three 3s ease forwards;
+    animation-delay: 60s;
 }
-
-
-/* Childhood home */
 
 .memory-four {
     right: 4%;
     top: 40%;
-
-    animation:
-        reveal-four 3s ease forwards;
-
-    animation-delay: 180s;
+    animation: reveal-four 3s ease forwards;
+    animation-delay: 80s;
 }
-
-
-/* =========================================
-   MEMORY REVEALS
-========================================= */
 
 @keyframes reveal-one {
-
     0% {
         opacity: 0;
-
-        transform:
-            translateY(15px)
-            scale(0.96);
+        transform: translateY(15px) scale(0.96);
     }
-
     100% {
         opacity: 1;
-
-        transform:
-            translateY(0)
-            scale(1);
+        transform: translateY(0) scale(1);
     }
 }
-
 
 @keyframes reveal-two {
-
     0% {
         opacity: 0;
-
-        transform:
-            translateY(15px)
-            scale(0.96);
+        transform: translateY(15px) scale(0.96);
     }
-
     100% {
         opacity: 1;
-
-        transform:
-            translateY(0)
-            scale(1);
+        transform: translateY(0) scale(1);
     }
 }
-
 
 @keyframes reveal-three {
-
     0% {
         opacity: 0;
-
-        transform:
-            translateY(15px)
-            scale(0.96);
+        transform: translateY(15px) scale(0.96);
     }
-
     100% {
         opacity: 1;
-
-        transform:
-            translateY(0)
-            scale(1);
+        transform: translateY(0) scale(1);
     }
 }
-
 
 @keyframes reveal-four {
-
     0% {
         opacity: 0;
-
-        transform:
-            translateY(15px)
-            scale(0.96);
+        transform: translateY(15px) scale(0.96);
     }
-
     100% {
         opacity: 1;
-
-        transform:
-            translateY(0)
-            scale(1);
+        transform: translateY(0) scale(1);
     }
 }
 
-
-/* =========================================
-   WALKING FIGURE
-   Brown-haired woman in sweater,
-   jeans, and white sneakers
-========================================= */
-
+/* WALKING FIGURE (INSIDE) */
 .person {
-
     position: absolute;
-
     left: 8%;
     top: 45%;
-
-    width: 60px;
-    height: 135px;
-
+    width: 55px;
+    height: 125px;
     z-index: 20;
-
-    animation:
-        person-journey 190s ease-in-out forwards;
+    animation: person-journey 90s linear forwards;
 }
 
-
-/* =========================================
-   HEAD + NECK
-========================================= */
-
+/* HEAD */
 .head {
-
     position: absolute;
-
-    top: 4px;
-    left: 19px;
-
-    width: 24px;
-    height: 26px;
-
+    top: 2px;
+    left: 18px;
+    width: 22px;
+    height: 25px;
     background: #e5b08d;
-
-    border-radius:
-        48% 48% 45% 45%;
-
+    border-radius: 48% 48% 45% 45%;
     z-index: 3;
 }
 
-/* Neck */
-
-.neck {
-    position: absolute;
-    top: 26px;
-    left: 24px;
-    width: 14px;
-    height: 8px;
-    background: #e5b08d;
-    border-radius: 10px;
-    z-index: 2;
-}
-
-
-/* =========================================
-   BROWN HAIR
-========================================= */
-
+/* BROWN HAIR */
 .head::before {
-
     content: "";
-
     position: absolute;
-
-    top: -6px;
+    top: -5px;
     left: -5px;
-
     width: 32px;
-    height: 44px;
-
+    height: 43px;
     background: #5a3d2e;
-
-    border-radius:
-        50% 50% 42% 42%;
-
+    border-radius: 50% 50% 42% 42%;
     z-index: -1;
 }
 
-
 /* Front section of hair */
-
 .head::after {
-
     content: "";
-
     position: absolute;
-
-    top: 2px;
-    left: -6px;
-
-    width: 12px;
+    top: 1px;
+    left: -5px;
+    width: 11px;
     height: 30px;
-
     background: #5a3d2e;
-
-    border-radius:
-        70% 20% 50% 70%;
+    border-radius: 70% 20% 50% 70%;
 }
 
-
-/* Simple facial features */
-
-.face-features {
-    position: absolute;
-    top: 9px;
-    left: 5px;
-    width: 14px;
-    height: 10px;
-}
-
-/* Eyes */
-
-.face-features::before,
-.face-features::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    width: 3px;
-    height: 3px;
-    border-radius: 50%;
-    background: #3a2b23;
-}
-
-.face-features::before {
-    left: 0;
-}
-
-.face-features::after {
-    right: 0;
-}
-
-/* Mouth */
-
-.face-mouth {
-    position: absolute;
-    top: 13px;
-    left: 8px;
-    width: 8px;
-    height: 3px;
-    border-radius: 10px;
-    background: #d48f6a;
-}
-
-
-/* =========================================
-   SWEATER / TORSO
-========================================= */
-
+/* SWEATER / TORSO */
 .body {
-
     position: absolute;
-
-    top: 30px;
+    top: 25px;
     left: 12px;
-
-    width: 36px;
-    height: 50px;
-
+    width: 34px;
+    height: 47px;
     background: #e9e1d3;
-
-    border-radius:
-        12px 12px 8px 8px;
-
+    border-radius: 12px 12px 6px 6px;
     z-index: 2;
-
-    box-shadow:
-        0 4px 10px rgba(0, 0, 0, 0.12);
 }
-
 
 /* Sweater neckline */
-
 .body::before {
-
     content: "";
-
     position: absolute;
-
     top: 0;
     left: 9px;
-
-    width: 18px;
+    width: 16px;
     height: 7px;
-
     background: #d8cebe;
-
-    border-radius:
-        0 0 10px 10px;
+    border-radius: 0 0 10px 10px;
 }
 
-/* Sweater stripe */
-
-.body::after {
-    content: "";
-    position: absolute;
-    bottom: 8px;
-    left: 4px;
-    right: 4px;
-    height: 6px;
-    background: rgba(200, 188, 170, 0.7);
-    border-radius: 10px;
-}
-
-
-/* =========================================
-   ARMS
-========================================= */
-
+/* ARMS */
 .arm {
-
     position: absolute;
-
-    top: 34px;
-
+    top: 29px;
     width: 9px;
-    height: 40px;
-
+    height: 39px;
     background: #e9e1d3;
-
-    border-radius:
-        8px;
-
+    border-radius: 8px;
     z-index: 1;
-
-    box-shadow:
-        0 2px 6px rgba(0, 0, 0, 0.12);
 }
-
 
 /* Left arm */
-
 .left-arm {
-
     left: 6px;
-
-    transform:
-        rotate(10deg);
 }
-
 
 /* Right arm */
-
 .right-arm {
-
     right: 6px;
-
-    transform:
-        rotate(-10deg);
 }
 
-
 /* Hands */
-
 .left-arm::after,
 .right-arm::after {
-
     content: "";
-
     position: absolute;
-
     bottom: -5px;
-
     left: 1px;
-
     width: 8px;
     height: 9px;
-
     background: #e5b08d;
-
     border-radius: 50%;
 }
 
-
-/* =========================================
-   JEANS
-========================================= */
-
+/* JEANS */
 .leg {
-
     position: absolute;
-
-    top: 72px;
-
-    width: 12px;
-    height: 45px;
-
-    background: linear-gradient(to right, #7c9fb5, #82a7bd);
-
-    border-radius:
-        3px 3px 7px 7px;
-
+    top: 67px;
+    width: 11px;
+    height: 43px;
+    background: #82a7bd;
+    border-radius: 3px 3px 7px 7px;
     z-index: 1;
 }
 
-
 /* Left leg */
-
 .left-leg {
-
     left: 15px;
 }
 
-
 /* Right leg */
-
 .right-leg {
-
-    right: 15px;
+    right: 14px;
 }
 
-
-/* =========================================
-   WHITE SNEAKERS
-========================================= */
-
+/* WHITE SNEAKERS */
 .left-leg::after,
 .right-leg::after {
-
     content: "";
-
     position: absolute;
-
     bottom: -6px;
-
-    width: 22px;
+    width: 21px;
     height: 9px;
-
     background: #f4f1e9;
-
-    border-radius:
-        10px 10px 5px 5px;
-
-    border-bottom:
-        2px solid #cfc8bd;
+    border-radius: 10px 10px 5px 5px;
+    border-bottom: 2px solid #cfc8bd;
 }
-
-
-/* Angle shoes slightly outward */
 
 .left-leg::after {
-
-    left: -9px;
-
-    transform:
-        rotate(6deg);
+    left: -8px;
+    transform: rotate(8deg);
 }
-
 
 .right-leg::after {
-
-    right: -9px;
-
-    transform:
-        rotate(-6deg);
+    right: -8px;
+    transform: rotate(-8deg);
 }
 
-
-/* =========================================
-   PERSON JOURNEY
-========================================= */
-
+/* PERSON JOURNEY – smoother path */
 @keyframes person-journey {
-
     0% {
         left: 8%;
         top: 45%;
-        transform: translateY(0);
     }
-
-    15% {
-        left: 10%;
-        top: 32%;
-        transform: translateY(-2px);
+    20% {
+        left: 18%;
+        top: 35%;
     }
-
-    25% {
-        left: 10%;
-        top: 25%;
-        transform: translateY(0);
-    }
-
-    30% {
-        left: 10%;
-        top: 25%;
-        transform: translateY(1px);
-    }
-
-    40% {
+    35% {
         left: 29%;
         top: 48%;
-        transform: translateY(0);
     }
-
-    45% {
-        left: 29%;
-        top: 48%;
-        transform: translateY(-1px);
-    }
-
-    55% {
+    50% {
         left: 34%;
         top: 60%;
-        transform: translateY(0);
     }
-
-    60% {
-        left: 38%;
-        top: 68%;
-        transform: translateY(1px);
-    }
-
     65% {
-        left: 38%;
-        top: 68%;
-        transform: translateY(0);
+        left: 48%;
+        top: 52%;
     }
-
-    75% {
-        left: 52%;
-        top: 50%;
-        transform: translateY(-1px);
-    }
-
     80% {
         left: 62%;
         top: 40%;
-        transform: translateY(0);
     }
-
-    90% {
-        left: 62%;
-        top: 40%;
-        transform: translateY(1px);
-    }
-
     100% {
         left: 62%;
         top: 40%;
-        transform: translateY(0);
     }
 }
 
-
-/* =========================================
-   WALKING MOVEMENT
-========================================= */
-
+/* WALKING MOVEMENT */
 .person .left-leg {
-
-    animation:
-        walk-left 0.9s infinite alternate;
+    animation: walk-left 0.7s infinite alternate;
 }
 
 .person .right-leg {
-
-    animation:
-        walk-right 0.9s infinite alternate;
+    animation: walk-right 0.7s infinite alternate;
 }
 
 .person .left-arm {
-
-    animation:
-        arm-left 0.9s infinite alternate;
+    animation: arm-left 0.7s infinite alternate;
 }
 
 .person .right-arm {
-
-    animation:
-        arm-right 0.9s infinite alternate;
+    animation: arm-right 0.7s infinite alternate;
 }
 
-
-/* =========================================
-   LEG ANIMATION
-========================================= */
-
+/* LEG ANIMATION */
 @keyframes walk-left {
-
     from {
-
-        transform:
-            rotate(14deg);
+        transform: rotate(18deg);
     }
-
     to {
-
-        transform:
-            rotate(-8deg);
+        transform: rotate(-18deg);
     }
 }
-
 
 @keyframes walk-right {
-
     from {
-
-        transform:
-            rotate(-14deg);
+        transform: rotate(-18deg);
     }
-
     to {
-
-        transform:
-            rotate(8deg);
+        transform: rotate(18deg);
     }
 }
 
-
-/* =========================================
-   ARM ANIMATION
-========================================= */
-
+/* ARM ANIMATION */
 @keyframes arm-left {
-
     from {
-
-        transform:
-            rotate(-14deg);
+        transform: rotate(-18deg);
     }
-
     to {
-
-        transform:
-            rotate(10deg);
+        transform: rotate(18deg);
     }
 }
-
 
 @keyframes arm-right {
-
     from {
-
-        transform:
-            rotate(14deg);
+        transform: rotate(18deg);
     }
-
     to {
-
-        transform:
-            rotate(-10deg);
+        transform: rotate(-18deg);
     }
 }
 
-
-/* =========================================
-   ROOM MESSAGE
-========================================= */
-
+/* ROOM MESSAGE */
 .room-message {
-
     position: absolute;
-
     left: 35px;
     bottom: 30px;
-
     z-index: 50;
-
     font-size: 15px;
-
     font-style: italic;
-
-    opacity: 0.5;
-
-    animation:
-        message-disappear 50s ease forwards;
+    opacity: 0.7;
+    animation: message-disappear 70s ease forwards;
 }
 
-
 @keyframes message-disappear {
-
     0% {
-
-        opacity: 0.5;
+        opacity: 0.7;
     }
-
-    70% {
-
-        opacity: 0.5;
+    80% {
+        opacity: 0.7;
     }
-
     100% {
-
         opacity: 0;
     }
 }
 
-
-/* =========================================
-   MOBILE
-========================================= */
-
+/* MOBILE */
 @media (max-width: 700px) {
-
     .back-wall {
-
         left: 0;
         width: 100%;
     }
 
     .left-wall {
-
         display: none;
     }
 
     .window {
-
         left: 35%;
     }
 
     .memory {
-
         width: 250px;
-
         gap: 10px;
     }
 
     .memory-image {
-
         width: 80px;
         height: 80px;
     }
 
     .memory-text p {
-
         font-size: 12px;
     }
 
     .room-message {
-
         left: 20px;
         bottom: 20px;
     }
 
-    .bed {
-        left: 4%;
-        width: 180px;
+    .speech-bubble {
+        max-width: 280px;
+        font-size: 13px;
     }
-
-    .nightstand {
-        left: 22%;
-    }
-
-    .plant {
-        right: 6%;
-    }
-
 }
