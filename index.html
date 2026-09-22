@@ -2,361 +2,209 @@
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
-
     <title>Give It Time</title>
-
     <link rel="stylesheet" href="css/style.css">
-
 </head>
-
 
 <body>
 
-
     <!-- =====================================
-         ENTER THE ROOM
+         ENTER THE HOUSE (CHECKBOX)
     ====================================== -->
-
     <input type="checkbox" id="enter-room">
 
-
     <!-- =====================================
-         INTRODUCTION
+         ANIMAL CROSSING–STYLE OUTSIDE SCENE
     ====================================== -->
+    <section class="intro intro-outside">
 
-    <section class="intro">
+        <div class="sky"></div>
+        <div class="ground"></div>
 
-        <div class="intro-content">
+        <!-- Trees -->
+        <div class="tree tree-left"></div>
+        <div class="tree tree-right"></div>
 
-            <p class="eyebrow">
-                AN EXERCISE IN PATIENCE
-            </p>
-
-            <h1>
-                Give It Time
-            </h1>
-
-            <p class="intro-line">
-                There is nothing you need to do here.
-            </p>
-
-            <p class="intro-line">
-                Just stay for a while.
-            </p>
-
-            <label for="enter-room"
-                   class="enter-button">
-
-                Enter the room
-
-            </label>
-
+        <!-- House -->
+        <div class="house">
+            <div class="house-body"></div>
+            <div class="house-roof"></div>
+            <div class="house-door"></div>
+            <div class="house-window house-window-left"></div>
+            <div class="house-window house-window-right"></div>
         </div>
+
+        <!-- Villager -->
+        <div class="villager">
+            <div class="villager-head"></div>
+            <div class="villager-body"></div>
+            <div class="villager-arm villager-arm-left"></div>
+            <div class="villager-arm villager-arm-right"></div>
+            <div class="villager-leg villager-leg-left"></div>
+            <div class="villager-leg villager-leg-right"></div>
+        </div>
+
+        <!-- Speech bubble / prompt -->
+        <div class="speech-bubble">
+            <p>Welcome! Press <span class="button-a">A</span> to enter the house.</p>
+        </div>
+
+        <!-- AC-style button -->
+        <label for="enter-room" class="enter-button ac-button">
+            Enter the house
+        </label>
 
     </section>
 
-
-
     <!-- =====================================
-         ROOM
+         ROOM (INSIDE THE HOUSE)
     ====================================== -->
-
     <main class="room">
 
-
-        <!-- =================================
-             BACK WALL
-        ================================== -->
-
+        <!-- BACK WALL -->
         <div class="back-wall">
 
             <!-- Window -->
-
             <div class="window">
-
                 <div class="window-vertical"></div>
-
                 <div class="window-horizontal"></div>
-
             </div>
-
 
             <!-- Picture frame -->
-
             <div class="picture-frame"></div>
 
+            <!-- Wall shelf -->
+            <div class="wall-shelf">
+                <div class="shelf-book shelf-book-one"></div>
+                <div class="shelf-book shelf-book-two"></div>
+                <div class="shelf-plant"></div>
+            </div>
         </div>
 
-
-
-        <!-- =================================
-             LEFT WALL
-        ================================== -->
-
+        <!-- LEFT WALL -->
         <div class="left-wall">
-
             <div class="door"></div>
-
         </div>
 
-
-
-        <!-- =================================
-             FLOOR
-        ================================== -->
-
+        <!-- FLOOR -->
         <div class="floor">
 
-
             <!-- Rug -->
-
             <div class="rug"></div>
 
-
-            <!-- =================================
-                 BED + NIGHTSTAND + LAMP
-            ================================== -->
-
+            <!-- Bed -->
             <div class="bed">
-
                 <div class="bed-frame"></div>
-
                 <div class="bed-mattress"></div>
-
-                <div class="bed-blanket"></div>
-
                 <div class="bed-pillow"></div>
-
             </div>
 
-            <div class="nightstand">
-
-                <div class="nightstand-body"></div>
-
-                <div class="lamp-base"></div>
-
-                <div class="lamp-stem"></div>
-
-                <div class="lamp-shade"></div>
-
-            </div>
-
-
-            <!-- =================================
-                 PLANT
-            ================================== -->
-
-            <div class="plant">
-
-                <div class="plant-pot"></div>
-
-                <div class="plant-leaf left"></div>
-
-                <div class="plant-leaf center"></div>
-
-                <div class="plant-leaf right"></div>
-
-            </div>
-
-
-
-            <!-- =================================
-                 CHAIR
-            ================================== -->
-
+            <!-- Chair -->
             <div class="chair">
-
                 <div class="chair-back"></div>
-
                 <div class="chair-seat"></div>
-
                 <div class="chair-leg chair-leg-left"></div>
-
                 <div class="chair-leg chair-leg-right"></div>
-
             </div>
 
-
-
-            <!-- =================================
-                 TABLE
-            ================================== -->
-
+            <!-- Table -->
             <div class="table">
-
                 <div class="table-top"></div>
-
                 <div class="table-leg table-leg-left"></div>
-
                 <div class="table-leg table-leg-right"></div>
-
+                <div class="table-item table-mug"></div>
+                <div class="table-item table-book"></div>
             </div>
 
+            <!-- Plant -->
+            <div class="floor-plant">
+                <div class="plant-pot"></div>
+                <div class="plant-leaf plant-leaf-left"></div>
+                <div class="plant-leaf plant-leaf-right"></div>
+            </div>
 
-
-            <!-- =================================
-                 MEMORY 1
-                 PINK BUNNY
-            ================================== -->
-
+            <!-- MEMORY 1: Pink bunny -->
             <div class="memory memory-one">
-
                 <div class="memory-image">
-
                     <img
                         src="assets/images/pink bunny stuffed animal.jpg"
-                        alt="A pink bunny stuffed animal"
-                    >
-
+                        alt="A pink bunny stuffed animal">
                 </div>
-
                 <div class="memory-text">
-
                     <p>
                         A gift I received from my grandmother
                         when I was born.
                     </p>
-
                 </div>
-
             </div>
 
-
-
-            <!-- =================================
-                 MEMORY 2
-                 PRESSED FLOWER
-            ================================== -->
-
+            <!-- MEMORY 2: Pressed flower -->
             <div class="memory memory-two">
-
                 <div class="memory-image">
-
                     <img
                         src="assets/images/Pressed flower bouquet.jpg"
-                        alt="A pressed flower bouquet"
-                    >
-
+                        alt="A pressed flower bouquet">
                 </div>
-
                 <div class="memory-text">
-
                     <p>
                         A flower bouquet from my boyfriend
                         for our first anniversary that I dried
                         and pressed to keep.
                     </p>
-
                 </div>
-
             </div>
 
-
-
-            <!-- =================================
-                 MEMORY 3
-                 SOUTH CAROLINA POSTCARD
-            ================================== -->
-
+            <!-- MEMORY 3: South Carolina postcard -->
             <div class="memory memory-three">
-
                 <div class="memory-image">
-
                     <img
                         src="assets/images/South Carolina postcard.jpg"
-                        alt="A South Carolina postcard"
-                    >
-
+                        alt="A South Carolina postcard">
                 </div>
-
                 <div class="memory-text">
-
                     <p>
                         I was born, raised, and went to
                         undergrad in South Carolina.
                     </p>
-
                 </div>
-
             </div>
 
-
-
-            <!-- =================================
-                 MEMORY 4
-                 CHILDHOOD HOME
-            ================================== -->
-
+            <!-- MEMORY 4: Childhood home -->
             <div class="memory memory-four">
-
                 <div class="memory-image">
-
                     <img
                         src="assets/images/photo of home.png"
-                        alt="A photograph of my childhood home"
-                    >
-
+                        alt="A photograph of my childhood home">
                 </div>
-
                 <div class="memory-text">
-
                     <p>
                         This is my childhood home,
                         where I grew up.
                     </p>
-
                 </div>
-
             </div>
 
-
-
-            <!-- =================================
-                 WALKING FIGURE
-            ================================== -->
-
+            <!-- WALKING FIGURE (INSIDE) -->
             <div class="person">
-
-                <div class="head">
-                    <div class="face-features"></div>
-                    <div class="face-mouth"></div>
-                </div>
-
-                <div class="neck"></div>
-
+                <div class="head"></div>
                 <div class="body"></div>
-
                 <div class="arm left-arm"></div>
-
                 <div class="arm right-arm"></div>
-
                 <div class="leg left-leg"></div>
-
                 <div class="leg right-leg"></div>
-
             </div>
-
 
         </div>
 
-
-
-        <!-- =================================
-             ROOM MESSAGE
-        ================================== -->
-
+        <!-- ROOM MESSAGE -->
         <p class="room-message">
-            Stay a little longer.
+            Take your time. Explore your memories.
         </p>
 
-
     </main>
-
 
 </body>
 
