@@ -1,10 +1,12 @@
 # Give It Time
 
 # Function: 
-A website that reveals one small personal artifact only after the viewer pauses long enough to receive it
+A website that invites the viewer to practice patience by following an archaeologist through an unpredictable excavation.
 
 # Value:
 Patience
 
 # Concept: 
-Give It Time is an interactive exploration of patience and the small things we often overlook when we are moving too quickly. The website asks the viewer to pause and simply wait, revealing a small personal artifact only after they have given it enough time and attention. In a digital space designed for constant movement and immediate gratification, the project creates a moment where slowing down becomes the experience itself.
+Give It Time is an interactive exploration of patience, attention, and the value of allowing things to unfold at their own pace. The website places the viewer at an archaeological dig where an archaeologist slowly clears the soil in search of artifacts. There is no countdown and no way to predict when a discovery will happen. Instead, the viewer must remain present and accept the uncertainty of waiting.
+
+At changing intervals, an artifact is uncovered and appears on screen with a short reflection about its history and meaning. The experience turns waiting into the main interaction: progress is not always visible, but that does not mean nothing is happening beneath the surface. In a digital space shaped by instant results, Give It Time creates a quiet reminder that meaningful discoveries often require attention, trust, and patience.
