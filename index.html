@@ -1,211 +1,56 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-    <title>Give It Time</title>
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Give It Time — An Archaeology of Patience</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
 </head>
-
 <body>
+  <main class="site-shell">
+    <header class="topbar">
+      <a class="wordmark" href="#top">FIELD NOTE <span>04</span></a>
+      <p class="topbar-note">An exercise in patience</p>
+      <button class="sound-toggle" id="soundToggle" type="button" aria-pressed="false">Sound: off</button>
+    </header>
 
-    <!-- =====================================
-         ENTER THE HOUSE (CHECKBOX)
-    ====================================== -->
-    <input type="checkbox" id="enter-room">
-
-    <!-- =====================================
-         ANIMAL CROSSING–STYLE OUTSIDE SCENE
-    ====================================== -->
-    <section class="intro intro-outside">
-
-        <div class="sky"></div>
-        <div class="ground"></div>
-
-        <!-- Trees -->
-        <div class="tree tree-left"></div>
-        <div class="tree tree-right"></div>
-
-        <!-- House -->
-        <div class="house">
-            <div class="house-body"></div>
-            <div class="house-roof"></div>
-            <div class="house-door"></div>
-            <div class="house-window house-window-left"></div>
-            <div class="house-window house-window-right"></div>
-        </div>
-
-        <!-- Villager -->
-        <div class="villager">
-            <div class="villager-head"></div>
-            <div class="villager-body"></div>
-            <div class="villager-arm villager-arm-left"></div>
-            <div class="villager-arm villager-arm-right"></div>
-            <div class="villager-leg villager-leg-left"></div>
-            <div class="villager-leg villager-leg-right"></div>
-        </div>
-
-        <!-- Speech bubble / prompt -->
-        <div class="speech-bubble">
-            <p>Welcome! Press <span class="button-a">A</span> to enter the house.</p>
-        </div>
-
-        <!-- AC-style button -->
-        <label for="enter-room" class="enter-button ac-button">
-            Enter the house
-        </label>
-
+    <section class="hero" id="top">
+      <div class="hero-copy">
+        <p class="eyebrow">Archaeology of the everyday</p>
+        <h1>Some things<br><em>take time.</em></h1>
+        <p class="intro">Below the surface, the past is still becoming visible. Stay with the dig. There is no schedule for discovery.</p>
+        <div class="instruction"><span class="pulse-dot"></span><span>Watch closely. The next find will arrive when it is ready.</span></div>
+      </div>
+      <div class="hero-meta"><span>34° 02' N</span><span>Excavation site 07</span></div>
     </section>
 
-    <!-- =====================================
-         ROOM (INSIDE THE HOUSE)
-    ====================================== -->
-    <main class="room">
-
-        <!-- BACK WALL -->
-        <div class="back-wall">
-
-            <!-- Window -->
-            <div class="window">
-                <div class="window-vertical"></div>
-                <div class="window-horizontal"></div>
-            </div>
-
-            <!-- Picture frame -->
-            <div class="picture-frame"></div>
-
-            <!-- Wall shelf -->
-            <div class="wall-shelf">
-                <div class="shelf-book shelf-book-one"></div>
-                <div class="shelf-book shelf-book-two"></div>
-                <div class="shelf-plant"></div>
-            </div>
+    <section class="dig-site" aria-label="Interactive archaeology excavation">
+      <div class="site-label"><span>Live excavation</span><span id="digStatus">Carefully clearing soil...</span></div>
+      <div class="landscape">
+        <div class="sun"></div><div class="hill hill-back"></div><div class="hill hill-front"></div>
+        <div class="archaeologist" id="archaeologist" aria-label="An archaeologist digging">
+          <div class="hat"></div><div class="person-head"></div><div class="person-body"></div><div class="arm arm-back"></div><div class="arm arm-front"></div><div class="tool"></div><div class="leg leg-back"></div><div class="leg leg-front"></div>
         </div>
+        <div class="dig-patch"><div class="soil-line"></div><div class="hole"></div><div class="soil-clump clump-one"></div><div class="soil-clump clump-two"></div><div class="soil-clump clump-three"></div></div>
+        <div class="dust dust-one"></div><div class="dust dust-two"></div><div class="dust dust-three"></div>
+      </div>
+      <div class="progress-row"><span>Site progress</span><div class="progress-track"><div class="progress-fill" id="progressFill"></div></div><span id="findCount">0 finds</span></div>
+    </section>
 
-        <!-- LEFT WALL -->
-        <div class="left-wall">
-            <div class="door"></div>
-        </div>
+    <section class="reflection">
+      <div class="reflection-number">01 / 03</div>
+      <div><p class="eyebrow">A note from the field</p><h2>Patience is not waiting<br>for nothing.</h2></div>
+      <p class="reflection-copy">It is the quiet work of making room for what cannot be rushed. Each pass of the brush brings you closer, even when the surface looks unchanged.</p>
+    </section>
+    <footer><span>Give it time.</span><span>Keep looking.</span><span>© 2024 Field Notes</span></footer>
+  </main>
 
-        <!-- FLOOR -->
-        <div class="floor">
-
-            <!-- Rug -->
-            <div class="rug"></div>
-
-            <!-- Bed -->
-            <div class="bed">
-                <div class="bed-frame"></div>
-                <div class="bed-mattress"></div>
-                <div class="bed-pillow"></div>
-            </div>
-
-            <!-- Chair -->
-            <div class="chair">
-                <div class="chair-back"></div>
-                <div class="chair-seat"></div>
-                <div class="chair-leg chair-leg-left"></div>
-                <div class="chair-leg chair-leg-right"></div>
-            </div>
-
-            <!-- Table -->
-            <div class="table">
-                <div class="table-top"></div>
-                <div class="table-leg table-leg-left"></div>
-                <div class="table-leg table-leg-right"></div>
-                <div class="table-item table-mug"></div>
-                <div class="table-item table-book"></div>
-            </div>
-
-            <!-- Plant -->
-            <div class="floor-plant">
-                <div class="plant-pot"></div>
-                <div class="plant-leaf plant-leaf-left"></div>
-                <div class="plant-leaf plant-leaf-right"></div>
-            </div>
-
-            <!-- MEMORY 1: Pink bunny -->
-            <div class="memory memory-one">
-                <div class="memory-image">
-                    <img
-                        src="assets/images/pink bunny stuffed animal.jpg"
-                        alt="A pink bunny stuffed animal">
-                </div>
-                <div class="memory-text">
-                    <p>
-                        A gift I received from my grandmother
-                        when I was born.
-                    </p>
-                </div>
-            </div>
-
-            <!-- MEMORY 2: Pressed flower -->
-            <div class="memory memory-two">
-                <div class="memory-image">
-                    <img
-                        src="assets/images/Pressed flower bouquet.jpg"
-                        alt="A pressed flower bouquet">
-                </div>
-                <div class="memory-text">
-                    <p>
-                        A flower bouquet from my boyfriend
-                        for our first anniversary that I dried
-                        and pressed to keep.
-                    </p>
-                </div>
-            </div>
-
-            <!-- MEMORY 3: South Carolina postcard -->
-            <div class="memory memory-three">
-                <div class="memory-image">
-                    <img
-                        src="assets/images/South Carolina postcard.jpg"
-                        alt="A South Carolina postcard">
-                </div>
-                <div class="memory-text">
-                    <p>
-                        I was born, raised, and went to
-                        undergrad in South Carolina.
-                    </p>
-                </div>
-            </div>
-
-            <!-- MEMORY 4: Childhood home -->
-            <div class="memory memory-four">
-                <div class="memory-image">
-                    <img
-                        src="assets/images/photo of home.png"
-                        alt="A photograph of my childhood home">
-                </div>
-                <div class="memory-text">
-                    <p>
-                        This is my childhood home,
-                        where I grew up.
-                    </p>
-                </div>
-            </div>
-
-            <!-- WALKING FIGURE (INSIDE) -->
-            <div class="person">
-                <div class="head"></div>
-                <div class="body"></div>
-                <div class="arm left-arm"></div>
-                <div class="arm right-arm"></div>
-                <div class="leg left-leg"></div>
-                <div class="leg right-leg"></div>
-            </div>
-
-        </div>
-
-        <!-- ROOM MESSAGE -->
-        <p class="room-message">
-            Take your time. Explore your memories.
-        </p>
-
-    </main>
-
+  <div class="artifact-modal" id="artifactModal" role="dialog" aria-modal="true" aria-labelledby="artifactTitle" hidden>
+    <div class="modal-card"><button class="close-modal" id="closeModal" type="button" aria-label="Close artifact">×</button><p class="eyebrow">Artifact uncovered</p><div class="artifact-illustration" id="artifactIllustration"></div><p class="artifact-era" id="artifactEra"></p><h2 id="artifactTitle"></h2><p id="artifactDescription"></p><button class="continue-button" id="continueButton" type="button">Return to the dig <span>→</span></button></div>
+  </div>
+  <script src="js/script.js"></script>
 </body>
-
 </html>
