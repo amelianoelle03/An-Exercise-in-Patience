@@ -1,56 +1,424 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Give It Time — An Archaeology of Patience</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css" />
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        An Exercise in Patience
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
 </head>
+
+
 <body>
-  <main class="site-shell">
-    <header class="topbar">
-      <a class="wordmark" href="#top">FIELD NOTE <span>04</span></a>
-      <p class="topbar-note">An exercise in patience</p>
-      <button class="sound-toggle" id="soundToggle" type="button" aria-pressed="false">Sound: off</button>
-    </header>
 
-    <section class="hero" id="top">
-      <div class="hero-copy">
-        <p class="eyebrow">Archaeology of the everyday</p>
-        <h1>Some things<br><em>take time.</em></h1>
-        <p class="intro">Below the surface, the past is still becoming visible. Stay with the dig. There is no schedule for discovery.</p>
-        <div class="instruction"><span class="pulse-dot"></span><span>Watch closely. The next find will arrive when it is ready.</span></div>
-      </div>
-      <div class="hero-meta"><span>34° 02' N</span><span>Excavation site 07</span></div>
-    </section>
 
-    <section class="dig-site" aria-label="Interactive archaeology excavation">
-      <div class="site-label"><span>Live excavation</span><span id="digStatus">Carefully clearing soil...</span></div>
-      <div class="landscape">
-        <div class="sun"></div><div class="hill hill-back"></div><div class="hill hill-front"></div>
-        <div class="archaeologist" id="archaeologist" aria-label="An archaeologist digging">
-          <div class="hat"></div><div class="person-head"></div><div class="person-body"></div><div class="arm arm-back"></div><div class="arm arm-front"></div><div class="tool"></div><div class="leg leg-back"></div><div class="leg leg-front"></div>
+    <!-- ==================================================
+         INTRODUCTION
+    =================================================== -->
+
+    <section class="hero">
+
+        <div class="hero-inner">
+
+            <p class="eyebrow">
+                ARCHAEOLOGY OF THE EVERYDAY
+            </p>
+
+
+            <h1>
+
+                <span>
+                    Some things
+                </span>
+
+                <span class="orange-text">
+                    take time.
+                </span>
+
+            </h1>
+
+
+            <div class="hero-copy">
+
+                <p>
+                    Below the surface, the past is still becoming visible.
+                    <br>
+                    Stay with the dig. There is no schedule for discovery.
+                </p>
+
+
+                <p class="watch-message">
+
+                    <span class="small-dot"></span>
+
+                    Watch closely. The next find will arrive when it is ready.
+
+                </p>
+
+            </div>
+
+
+            <div class="coordinates">
+
+                34° 02′ N
+
+                <br><br>
+
+                Excavation site 07
+
+            </div>
+
         </div>
-        <div class="dig-patch"><div class="soil-line"></div><div class="hole"></div><div class="soil-clump clump-one"></div><div class="soil-clump clump-two"></div><div class="soil-clump clump-three"></div></div>
-        <div class="dust dust-one"></div><div class="dust dust-two"></div><div class="dust dust-three"></div>
-      </div>
-      <div class="progress-row"><span>Site progress</span><div class="progress-track"><div class="progress-fill" id="progressFill"></div></div><span id="findCount">0 finds</span></div>
+
     </section>
 
-    <section class="reflection">
-      <div class="reflection-number">01 / 03</div>
-      <div><p class="eyebrow">A note from the field</p><h2>Patience is not waiting<br>for nothing.</h2></div>
-      <p class="reflection-copy">It is the quiet work of making room for what cannot be rushed. Each pass of the brush brings you closer, even when the surface looks unchanged.</p>
-    </section>
-    <footer><span>Give it time.</span><span>Keep looking.</span><span>© 2024 Field Notes</span></footer>
-  </main>
 
-  <div class="artifact-modal" id="artifactModal" role="dialog" aria-modal="true" aria-labelledby="artifactTitle" hidden>
-    <div class="modal-card"><button class="close-modal" id="closeModal" type="button" aria-label="Close artifact">×</button><p class="eyebrow">Artifact uncovered</p><div class="artifact-illustration" id="artifactIllustration"></div><p class="artifact-era" id="artifactEra"></p><h2 id="artifactTitle"></h2><p id="artifactDescription"></p><button class="continue-button" id="continueButton" type="button">Return to the dig <span>→</span></button></div>
-  </div>
-  <script src="js/script.js"></script>
+
+    <!-- ==================================================
+         EXCAVATION
+    =================================================== -->
+
+    <section class="excavation-section">
+
+
+        <div class="excavation-header">
+
+            <span>
+                LIVE EXCAVATION
+            </span>
+
+
+            <span id="digStatus">
+                CAREFULLY CLEARING SOIL...
+            </span>
+
+        </div>
+
+
+
+        <div
+            id="digSite"
+            class="dig-site"
+        >
+
+
+            <!-- SKY -->
+
+            <div class="sky"></div>
+
+
+            <!-- SUN -->
+
+            <div class="sun"></div>
+
+
+            <!-- BACK HILL -->
+
+            <div class="hill hill-back"></div>
+
+
+            <!-- FRONT HILL -->
+
+            <div class="hill hill-front"></div>
+
+
+            <!-- GROUND -->
+
+            <div class="ground"></div>
+
+
+            <!-- EXCAVATION AREA -->
+
+            <div class="excavation-pit">
+
+
+                <div class="pit-rim"></div>
+
+
+                <div class="pit-hole">
+
+                    <div class="pit-inner"></div>
+
+                </div>
+
+
+                <!-- Soil layers -->
+
+                <div class="soil-layer layer-one"></div>
+
+                <div class="soil-layer layer-two"></div>
+
+                <div class="soil-layer layer-three"></div>
+
+
+                <!-- Artifact discovery points -->
+
+                <div
+                    class="artifact-location location-one"
+                ></div>
+
+                <div
+                    class="artifact-location location-two"
+                ></div>
+
+                <div
+                    class="artifact-location location-three"
+                ></div>
+
+                <div
+                    class="artifact-location location-four"
+                ></div>
+
+                <div
+                    class="artifact-location location-five"
+                ></div>
+
+                <div
+                    class="artifact-location location-six"
+                ></div>
+
+
+                <!-- Archaeologist -->
+
+                <div
+                    id="archaeologist"
+                    class="archaeologist"
+                >
+
+                    <div class="person-head"></div>
+
+                    <div class="person-hair"></div>
+
+                    <div class="person-body"></div>
+
+                    <div class="person-arm arm-left"></div>
+
+                    <div class="person-arm arm-right"></div>
+
+                    <div class="person-leg leg-left"></div>
+
+                    <div class="person-leg leg-right"></div>
+
+                </div>
+
+
+                <!-- Archaeology tool -->
+
+                <div class="trowel">
+
+                    <div class="trowel-handle"></div>
+
+                    <div class="trowel-blade"></div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Soil specks -->
+
+            <span class="soil-speck speck-one"></span>
+            <span class="soil-speck speck-two"></span>
+            <span class="soil-speck speck-three"></span>
+            <span class="soil-speck speck-four"></span>
+            <span class="soil-speck speck-five"></span>
+
+
+        </div>
+
+
+        <p
+            id="waitingText"
+            class="waiting-text"
+        >
+            Carefully clearing soil...
+        </p>
+
+
+    </section>
+
+
+
+    <!-- ==================================================
+         PATIENCE SECTION
+    =================================================== -->
+
+    <section class="patience-section">
+
+        <p class="section-label">
+            PRACTICE PATIENT ATTENTION
+        </p>
+
+
+        <h2>
+            Stay with the dig.
+        </h2>
+
+
+        <p>
+            Nothing needs to be done.
+            Watch the excavation.
+            Something will eventually become visible.
+        </p>
+
+
+        <p>
+            Excavation site 07
+        </p>
+
+
+        <div
+            id="collectionDots"
+            class="collection-dots"
+        ></div>
+
+    </section>
+
+
+
+    <!-- ==================================================
+         ARTIFACT MODAL
+    =================================================== -->
+
+    <div
+        id="artifactModal"
+        class="artifact-modal"
+        hidden
+    >
+
+        <div class="artifact-card">
+
+
+            <!-- LEFT: ARTIFACT IMAGE -->
+
+            <div class="artifact-image">
+
+                <div
+                    id="artifactIllustration"
+                    class="artifact-illustration"
+                ></div>
+
+            </div>
+
+
+
+            <!-- RIGHT: INFORMATION -->
+
+            <div class="artifact-info">
+
+
+                <button
+                    id="closeModal"
+                    class="close-modal"
+                    aria-label="Close"
+                >
+                    ×
+                </button>
+
+
+                <p
+                    id="artifactEra"
+                    class="artifact-era"
+                >
+                    EARLY SETTLEMENT
+                </p>
+
+
+                <h2
+                    id="artifactTitle"
+                >
+                    The handled cup
+                </h2>
+
+
+                <p
+                    id="artifactMaterial"
+                    class="artifact-material"
+                >
+                    Fired clay · domestic vessel
+                </p>
+
+
+                <hr>
+
+
+                <p
+                    id="artifactDescription"
+                    class="artifact-description"
+                >
+                    A small drinking cup with a repaired rim.
+                </p>
+
+
+                <hr>
+
+
+                <p class="significance-heading">
+                    HISTORICAL SIGNIFICANCE
+                </p>
+
+
+                <p
+                    id="artifactSignificance"
+                    class="artifact-significance"
+                >
+                    Domestic pottery gives archaeologists
+                    evidence about ordinary meals, craft
+                    traditions, and household life.
+                </p>
+
+
+                <div class="lesson-box">
+
+                    <p>
+                        A LESSON IN PATIENCE
+                    </p>
+
+
+                    <span
+                        id="patienceLesson"
+                    >
+                        Patient attention notices the repair
+                        before it notices the object itself.
+                    </span>
+
+                </div>
+
+
+                <button
+                    id="continueButton"
+                    class="return-button"
+                >
+                    Return to the dig
+                </button>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <script
+        src="js/script.js"
+    ></script>
+
+
 </body>
+
 </html>
